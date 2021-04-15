@@ -1,0 +1,12 @@
+To use Dagger-Hilt
+1. Make file for dagger with param class Application(), also make sure you implement @HiltAndroidApp
+    and implement name dagger App in file Manifest
+2. After you make file for dagger, next is make object file for dagger. for each object you must
+    implement @Module and @InstallIn(with component you need::class), in object section you must add
+    @Provides and @Named. If you use Application Component you must add @Singleton, but if you
+    use ActivityComponent you must add @ActivityScoped and etc.
+3. If you implement another object in object file dagger then implement parameter @ApplicationContext
+    and @Named object
+4. In every file kotlin you must implement @AndroidEntryPoint, @Named, and also specify type the dagger file
+5. If you use ViewModel first make file for ViewModel by add @ViewModelInject constructor with 
+    @Named then next init in class and implement it but must be initialize first
